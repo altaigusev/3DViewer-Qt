@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>3DViewer 2.0 - technical features</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>3DViewer documentation</h1>
+  <p>Go to <a href="index.html">main page</a></p>
+  <p>Here are some public methods in our classes</p>
+  <h2>MODEL CLASSES</h2>
+  <h3>Affine transformations (methods not incapsulated in any class) </h3>
+  <ul>
+    <li>void translateX(S21Matrix &loadMatrix, float x)</li>
+    <li>void translateY(S21Matrix &loadMatrix, float y)</li>
+    <li>void translateZ(S21Matrix &loadMatrix, float z)</li>
+    <li>void rotateX(S21Matrix &loadMatrix, float radian)</li>
+    <li>void rotateY(S21Matrix &loadMatrix, float radian)</li>
+    <li>void rotateZ(S21Matrix &loadMatrix, float radian)</li>
+    <li>void scale(S21Matrix &loadMatrix, float scale)</li>
+  </ul>
+  <h3>class MatrixAdapter</h3>
+  <ul>
+    <li>static MatrixAdapter& Instance()</li>
+    <li>QMatrix4x4 returnQmatrix4x4(S21Matrix matrixS21)</li>
+    <li>S21Matrix returnS21matrix(QMatrix4x4 matrixQm)</li>
+  </ul>
+  <h3>class Eye</h3>
+  <ul>
+    <li>void draw(QOpenGLShaderProgram* program, QOpenGLFunctions*functions = nullptr) main drawing method </li>
+    <li>void rotate(const QQuaternion &r) rotate model using built-in Qt QQuaternion matrix</li>
+    <li>void translate(const QVector3D &t) </li>
+    <li>void setLightPosition(float positionX, float positionY)</li>
+    <li>void setLightPower(float lPower)</li>
+    <li>void lightOnOff(bool on)</li>
+    <li>void setColorLightRed(float lRed)</li>
+    <li>void setColorLightGreen(float lGreen)</li>
+    <li>void setColorLightBlue(float lBlue)</li>
+  </ul>
+  <h3>class LoaderObj</h3>
+  <ul>
+    <li>LoaderObj()</li>
+    <li>QPair<QVector<VertexData>, QVector<GLuint>> loadModel(const QString &pathModel)</li>
+  </ul>
+  <h2>VIEW CLASSES</h2>
+  <h3>class GifWorker</h3>
+  <ul>
+    <li>explicit GifWorker(QObject *parent = 0)</li>
+    <li>~GifWorker() {}</li>
+    <li>void appendImage(QImage screenshot)</li>
+    <li>void setSavePath(QString &filename)</li>
+    <li>void setFrameCount(int frames)</li>
+  </ul>
+  <h3>class MainWindow</h3>
+  <ul>
+    <li>MainWindow(QWidget *parent = nullptr)</li>
+    <li>~MainWindow()</li>
+  </ul>
+  <h3>class Memento</h3>
+  <ul>
+    <li>Memento()</li>
+    <li>Memento(QColor backgroundColor, QColor surfaceColor, QColor linesColor, QColor verticesColor,
+             int vertexcesForm, int vertexcesSize, int lineForm, int lineThickness, int projectionType)</li>
+    <li>void setBackgroundColor(const QColor &newBackgroundColor)</li>
+    <li>const QColor &BackgroundColor() const</li>
+    <li>void setSurfaceColor(const QColor &newSurfaceColor)</li>
+    <li>const QColor &SurfaceColor() const</li>
+    <li>void setLinessColor(const QColor &newLinessColor)</li>
+    <li>const QColor &LinessColor() const</li>
+    <li>void setVerticesColor(const QColor &newVerticesColor)</li>
+    <li>const QColor &VerticesColor() const</li>
+    <li>void setVertexcesForm(int newVertexcesForm)</li>
+    <li>int VertexcesForm() const</li>
+    <li>void setVertexcesSize(int newVertexcesSize)</li>
+    <li>int VertexcesSize() const</li>
+    <li>void setLineForm(int newLineForm)</li>
+    <li>int LineForm() const</li>
+    <li>void setLineThickness(int newLineThickness)</li>
+    <li>int LineThickness() const</li>
+    <li>void setProjectionType(int newProjectionType)</li>
+    <li>int ProjectionType() const</li>
+  </ul>
+  <h3>class SimpleObject3D</h3>
+  <ul>
+    <li>SimpleObject3D()</li>
+    <li>SimpleObject3D(const QVector<s21::VertexData> &vertData,
+      const QVector<GLuint> &indexes)</li>
+    <li>~SimpleObject3D()</li>
+    <li>void init(const QVector<VertexData> &vertData,
+        const QVector<GLuint> &indexes)</li>
+    <li>void draw(QOpenGLShaderProgram *program, QOpenGLFunctions *functions)</li>
+    <li>void initTexture(const QString &pathTexture)</li>
+    <li>void delTexture()</li>
+    <li>void pointsFoo(float pointS, QColor colorPoints, int smooth)</li>
+    <li>void lineWidth(int l_Width)</li>
+    <li>void lineDash(int l_Dash)</li>
+    <li>void setColorLine(QVector4D colorM)</li>
+    <li>void setColorDot(QVector4D colorD)</li>
+    <li>void setColorSurf(QVector4D colorS)</li>
+    <li>void setForm(int f)</li>
+    <li>void setPointSize(int p)</li>
+    <li>void translateModelX(float x)</li>
+    <li>void translateModelY(float y)</li>
+    <li>void translateModelZ(float z)</li>
+    <li>void rotateModelX(float x)</li>
+    <li>void rotateModelY(float y)</li>
+    <li>void rotateModelZ(float z)</li>
+    <li>void scaleModel(const float &s)</li>
+    <li>void changeMatrix()</li>
+  </ul>
+  <h3>class Widget3d</h3>
+  <ul>
+    <li>Widget3d(QWidget *parent = 0)</li>
+    <li>~Widget3d()</li>
+    <li>bool addNewModel(const QString &pathModel)</li>
+    <li>void LoadNewModel()</li>
+    <li>void deletModel()</li>
+    <li>void setColorBack(QVector4D colorB)</li>
+    <li>void setProjection(int projection)</li>
+    <li>Eye *getEye()</li>
+    <li>void changeEye()</li>
+    <li>QVector<SimpleObject3D *>& getm_Oobjects()</li>
+  </ul>
+  <h2>CONTROLLER CLASSES</h2>
+  <h3>class Controller</h3>
+  <ul>
+    <li>static Controller& Instance()</li>
+    <li>SimpleObject3D *loadObjectModel(const QString &path)</li>
+    <li>void loadTexture(const QString &pathTexture)</li>
+  </ul>
+  <p>(c) Jmadie Wsulu Sshunpik</p>
+  <p></p>
+</body>
+
+</html>

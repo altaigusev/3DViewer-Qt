@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/mainIcons">
+        <file>View/mainIcons/free-icon-cube-7355507.png</file>
+        <file>View/mainIcons/japanese-flag-9023.png</file>
+        <file>View/mainIcons/photography.png</file>
+        <file>View/mainIcons/premium-icon-close-4241407.png</file>
+        <file>View/mainIcons/premium-icon-eject-4241394.png</file>
+        <file>View/mainIcons/premium-icon-equalizer-4240930.png</file>
+        <file>View/mainIcons/premium-icon-folder-4386380.png</file>
+        <file>View/mainIcons/premium-icon-gear-4323569.png</file>
+        <file>View/mainIcons/premium-icon-record-4241010.png</file>
+        <file>View/mainIcons/premium-icon-reload-4241379.png</file>
+        <file>View/mainIcons/wall-2.png</file>
+        <file>View/mainIcons/wall.png</file>
+        <file>View/mainIcons/firewall.png</file>
+        <file>View/mainIcons/question.png</file>
+        <file>View/mainIcons/premium-icon-information-4241428.png</file>
+        <file>View/mainIcons/premium-icon-bright-4240835.png</file>
+        <file>View/mainIcons/icons8-menu-96.png</file>
+        <file>View/mainIcons/rays-of-light-pngrepo-com.png</file>
+        <file>View/mainIcons/icons8-menu-rounded-96.png</file>
+        <file>View/mainIcons/free-icon-cube-7355507-solid.png</file>
+        <file>View/mainIcons/free-icon-cube-7355507-texture.png</file>
+        <file>View/mainIcons/rotate-camera.png</file>
+    </qresource>
+    <qresource prefix="/modelIcons">
+        <file>View/modelIcons/color-wheel.png</file>
+        <file>View/modelIcons/expand.png</file>
+        <file>View/modelIcons/fast-forward.png</file>
+        <file>View/modelIcons/return.png</file>
+        <file>View/modelIcons/transfer.png</file>
+        <file>View/modelIcons/light_on.png</file>
+        <file>View/modelIcons/premium-icon-loading-5355674.png</file>
+        <file>View/modelIcons/icons8-vertex-level-96.png</file>
+    </qresource>
+</RCC>
